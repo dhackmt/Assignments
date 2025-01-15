@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "TypeScript Debug",
+        "preLaunchTask": "tsc: build - tsconfig.json",
+        "program": "${workspaceFolder}/dist/app.js",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "sourceMaps": true,
+        "cwd": "${workspaceFolder}",
+        "skipFiles": ["<node_internals>/**"],
+        "runtimeArgs": ["--nolazy"],
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
+      {
+        "type": "node",
+        "request": "attach",
+        "name": "Attach to Process",
+        "skipFiles": ["<node_internals>/**"]
+      }
+    ]
+  }

@@ -14,8 +14,6 @@ const handleCheckMember = (req, res) => {
     if (binary[0] === '1') {
         result.reverse();
     }
-    let result1 = result.join("");
-    console.log(result1);
     return res.send(result);
 };
 exports.handleCheckMember = handleCheckMember;
