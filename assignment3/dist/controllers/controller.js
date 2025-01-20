@@ -109,6 +109,8 @@ const sendDataAsMail = (req, res) => __awaiter(void 0, void 0, void 0, function*
                 <th>city</th>
                 <th>country</th>
                 <th>weather</th>
+                <th>Latitude</th>
+                <th>longitude</th>
                 </tr>
                 ${data.map(rec => `
                     <tr>

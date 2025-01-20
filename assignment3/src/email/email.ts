@@ -6,14 +6,14 @@ export const sendMail=async(content:string)=>{
         port:465,
         secure:true,
         auth:{
-            user:"djadhwani20@gmail.com",
-            pass:"jhj",
+            user:"",//fromgmail
+            pass:"",//passkey
         }
     })
     
     const mailOPtions={
-        from:"djadhwani20@gmail.com",
-        to:"jadhwanidrishti@gmail.com",
+        from:"",//fromgmail
+        to:"",//togmail
         subject:"Data about city",
         html:content,
     };

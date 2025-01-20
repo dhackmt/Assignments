@@ -92,7 +92,7 @@ export async function SaveWeatherMapping(req:Request,res:Response) {
     }
 
     export const weatherDashboard=async(req:Request,res:Response)=>{
-        const city=req.params   .city;
+        const city=req.params.city;
         if(city)
         {
             const condition={where:{city:`${city}`}}
@@ -118,6 +118,8 @@ export const sendDataAsMail=async(req:Request,res:Response)=>{
                 <th>city</th>
                 <th>country</th>
                 <th>weather</th>
+                <th>Latitude</th>
+                <th>longitude</th>
                 </tr>
                 ${data.map(rec=>`
                     <tr>
