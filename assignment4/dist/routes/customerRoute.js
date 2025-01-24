@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const customerController_1 = require("../controllers/customerController");
+const authorization_1 = require("../middlewares/authorization");
+const router = (0, express_1.Router)();
+router.post("/signIn", customerController_1.customerLogin);
+router.get("/", (0, authorization_1.isAuthorized)('Customer'), customerController_1.customerPersonalData);
+router.get("/sowData", (0, authorization_1.isAuthorized)('Customer'), customerController_1.getSowData);
+router.get("/getPaymentPlans", (0, authorization_1.isAuthorized)('Customer'), customerController_1.getPaymentPlans);
+exports.default = router;
