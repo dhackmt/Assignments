@@ -1,5 +1,6 @@
 import sequelize from "../database/pgConfig";
 import { DataTypes,Model } from "sequelize";
+import PaymentPlan from "./paymentPlanSchema";
 
 class Sow extends Model{
     public sowId!:number;
@@ -43,5 +44,6 @@ Sow.init({
     tableName:"sow",
     timestamps:true,
 });
+
 
 export default Sow;

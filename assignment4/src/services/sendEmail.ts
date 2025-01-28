@@ -6,12 +6,12 @@ const transporter=nodemailer.createTransport({
     port:465,
     service:'gmail',
     auth:{
-        user:'djadhwani20@gmail.com',
-        pass:'aybjyprjekygnfay'
+        user:'', //mailid,
+        pass:''//app password
     }
 });
 const mailOptions={
-    from:'djadhwani20@gmail.com',
+    from:'',//mailid
     to:email,
     subject:'Payment Due Date',
     text:`Respected Sir/ma'am 

@@ -20,12 +20,12 @@ const sendMailPassword = (Cust_email, randomPassword, OrgName) => __awaiter(void
         port: 465,
         service: 'gmail',
         auth: {
-            user: 'djadhwani20@gmail.com',
-            pass: 'aybjyprjekygnfay'
+            user: '', //mailid,
+            pass: '' //app password
         }
     });
     const mailOptions = {
-        from: 'djadhwani20@gmail.com',
+        from: '', //mailid
         to: Cust_email,
         subject: 'Customer Added',
         text: `Respected Sir/ma'am 

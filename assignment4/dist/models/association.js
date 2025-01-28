@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const customerSchema_1 = __importDefault(require("../models/customerSchema"));
 const organisationSchema_1 = __importDefault(require("../models/organisationSchema"));
+const invoiceSchema_1 = __importDefault(require("./invoiceSchema"));
+const LineItemsSchema_1 = __importDefault(require("./LineItemsSchema"));
 const OrgCustSchema_1 = __importDefault(require("./OrgCustSchema"));
 const paymentPlanSchema_1 = __importDefault(require("./paymentPlanSchema"));
 const sowSchema_1 = __importDefault(require("./sowSchema"));
@@ -17,3 +19,9 @@ sowSchema_1.default.belongsTo(OrgCustSchema_1.default);
 //1 sow can have many payment plans
 sowSchema_1.default.hasMany(paymentPlanSchema_1.default);
 paymentPlanSchema_1.default.belongsTo(sowSchema_1.default);
+//1 payment plan can have many line Items
+paymentPlanSchema_1.default.hasMany(LineItemsSchema_1.default);
+LineItemsSchema_1.default.belongsTo(paymentPlanSchema_1.default);
+//1 payment will have only 1 invoice
+paymentPlanSchema_1.default.hasOne(invoiceSchema_1.default);
+invoiceSchema_1.default.belongsTo(paymentPlanSchema_1.default);

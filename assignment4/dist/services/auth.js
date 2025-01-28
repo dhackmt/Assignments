@@ -10,7 +10,7 @@ const createToken = (email, id, role) => {
     const payload = {
         id: id,
         email: email,
-        role: role,
+        role: role, //role can be either organisation or customer so that role based authorization can be acheived
     };
     const token = jsonwebtoken_1.default.sign(payload, secret);
     return token;

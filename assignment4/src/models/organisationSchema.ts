@@ -32,6 +32,7 @@ class Organisation extends Model implements OrganisationAttributes{
         return bcrypt.hash(password,salt);
     }
 
+    //check if password entered by user matches with the one in database
     public static async comparePassword(enteredPassword:string,storedPassword:string):Promise<boolean>{
         return bcrypt.compare(enteredPassword,storedPassword);
     }

@@ -21,14 +21,9 @@ LineItems.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
-    status: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
-        defaultValue: "pending",
-    }
 }, {
     sequelize: pgConfig_1.default,
-    tableName: "PaymentPlan",
+    tableName: "lineItem",
     timestamps: true,
 });
 exports.default = LineItems;

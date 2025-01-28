@@ -5,46 +5,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const pgConfig_1 = __importDefault(require("../database/pgConfig"));
 const sequelize_1 = require("sequelize");
-class PaymentPlan extends sequelize_1.Model {
+class invoice extends sequelize_1.Model {
 }
-PaymentPlan.init({
-    planId: {
+invoice.init({
+    invoiceId: {
         type: sequelize_1.DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-    },
-    particulars: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
     },
     amount: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
-    dueDate: {
-        type: sequelize_1.DataTypes.DATE,
-        allowNull: false,
-    },
-    status: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
-        defaultValue: "pending",
-    },
     customerId: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
-    OrganisationId: {
+    organisationId: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
     },
-    pendingAmount: {
-        type: sequelize_1.DataTypes.INTEGER,
+    receivedOn: {
+        type: sequelize_1.DataTypes.DATE,
         allowNull: false,
     }
 }, {
     sequelize: pgConfig_1.default,
-    tableName: "PaymentPlan",
+    tableName: "invoice",
     timestamps: true,
 });
-exports.default = PaymentPlan;
+exports.default = invoice;

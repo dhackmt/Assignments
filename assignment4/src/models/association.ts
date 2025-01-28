@@ -1,5 +1,7 @@
 import Customer from "../models/customerSchema";
 import Organisation from "../models/organisationSchema";
+import invoice from "./invoiceSchema";
+import LineItems from "./LineItemsSchema";
 import OrgCust from "./OrgCustSchema";
 import PaymentPlan from "./paymentPlanSchema";
 import Sow from "./sowSchema";
@@ -17,3 +19,14 @@ Sow.belongsTo(OrgCust);
 
 Sow.hasMany(PaymentPlan);
 PaymentPlan.belongsTo(Sow);
+
+
+//1 payment plan can have many line Items
+PaymentPlan.hasMany(LineItems);
+LineItems.belongsTo(PaymentPlan);
+
+
+//1 payment will have only 1 invoice
+PaymentPlan.hasOne(invoice);
+invoice.belongsTo(PaymentPlan);
+

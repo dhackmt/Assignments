@@ -12,25 +12,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sendEmail = void 0;
+exports.sendInvoice = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
-const sendEmail = (orgName, email, particulars, amount) => __awaiter(void 0, void 0, void 0, function* () {
+const sendInvoice = (orgName, custName, amount, orgEmail, custEmail, particulars) => __awaiter(void 0, void 0, void 0, function* () {
     const transporter = nodemailer_1.default.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
         service: 'gmail',
         auth: {
             user: '', //mailid,
-            pass: '' //app password
+            pass: '' //app password'
         }
     });
     const mailOptions = {
-        from: '', //mailid
-        to: email,
-        subject: 'Payment Due Date',
-        text: `Respected Sir/ma'am 
-    You are due ${amount} to ${orgName} for ${particulars}.Kindly pay all your dues 
-    ThankYou!`
+        from: '', //mail id
+        to: [orgEmail, custEmail],
+        subject: 'Payment Success',
+        text: `${custName} has successfully paid amount of ${amount} to ${orgName} !`
     };
     transporter.sendMail(mailOptions, function (err, info) {
         if (err) {
@@ -41,4 +39,4 @@ const sendEmail = (orgName, email, particulars, amount) => __awaiter(void 0, voi
         }
     });
 });
-exports.sendEmail = sendEmail;
+exports.sendInvoice = sendInvoice;

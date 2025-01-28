@@ -15,7 +15,7 @@ export const createToken=(email:string,id:number,role:string)=>{
   const payload:UserPayload={
    id:id,
    email:email,
-    role:role,
+    role:role,  //role can be either organisation or customer so that role based authorization can be acheived
   }
   const token=jwt.sign(payload,secret);
   return token;

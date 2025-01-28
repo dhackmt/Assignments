@@ -24,6 +24,7 @@ class Organisation extends sequelize_1.Model {
             return bcrypt_1.default.hash(password, salt);
         });
     }
+    //check if password entered by user matches with the one in database
     static comparePassword(enteredPassword, storedPassword) {
         return __awaiter(this, void 0, void 0, function* () {
             return bcrypt_1.default.compare(enteredPassword, storedPassword);

@@ -27,8 +27,10 @@ exports.loginUser = exports.createUser = void 0;
 const organisationSchema_1 = __importDefault(require("../models/organisationSchema"));
 const auth_1 = require("../services/auth");
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //fetch data from payload
     const _a = req.body, { Orgname, password } = _a, otherDetails = __rest(_a, ["Orgname", "password"]);
     const hashedPassword = yield organisationSchema_1.default.hashPassword(password);
+    //insert data into database
     const organisation = yield organisationSchema_1.default.create(Object.assign({ Orgname, password: hashedPassword }, otherDetails));
     const token = (0, auth_1.createToken)(organisation.email, organisation.id, "Organisation");
     res.json(token);
@@ -41,6 +43,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             email: email,
         }
     });
+    //check if user exists
     if (users.length == 0) {
         res.json({ message: "No such User" });
         return;
